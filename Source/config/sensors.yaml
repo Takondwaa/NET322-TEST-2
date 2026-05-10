@@ -1,0 +1,41 @@
+# config/sensors.yaml
+# Configuration for the sensor simulator.
+# Each entry under `sensors` becomes an independent async task that
+# connects to the server over TCP and pushes Protobuf readings.
+
+server:
+  host: "127.0.0.1"   # TCP address of the telemetry server
+  port: 9000
+
+sensors:
+  - id: "gh_a_temp_01"
+    location: "Greenhouse A"
+    sensor_type: "temperature"
+    unit: "celsius"
+    report_interval_s: 5
+    min_value: 15.0
+    max_value: 40.0
+
+  - id: "gh_b_hum_01"
+    location: "Greenhouse B"
+    sensor_type: "humidity"
+    unit: "percent"
+    report_interval_s: 10
+    min_value: 40.0
+    max_value: 95.0
+
+  - id: "gh_c_light_01"
+    location: "Greenhouse C"
+    sensor_type: "light"
+    unit: "lux"
+    report_interval_s: 15
+    min_value: 0.0
+    max_value: 100000.0
+
+  - id: "gh_d_soil_01"
+    location: "Greenhouse D"
+    sensor_type: "soil"
+    unit: "volumetric_water_content"
+    report_interval_s: 20
+    min_value: 0.1
+    max_value: 0.6
