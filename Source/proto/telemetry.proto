@@ -1,0 +1,19 @@
+syntax = "proto3";
+package telemetry;
+
+// A single sensor reading transmitted over TCP every report_interval_s seconds.
+message Reading {
+    string sensor_id = 1;  // matches Sensor.id in the registry
+    int64  timestamp = 2;  // Unix epoch milliseconds (UTC)
+    double value     = 3;  // numeric measurement
+    string unit      = 4;  // "celsius", "percent", "lux", "volumetric_water_content"
+}
+
+// Sent once when a sensor simulator first connects over TCP.
+// Mirrors the body accepted by POST /sensors on the REST API.
+message SensorInfo {
+    string id          = 1;
+    string location    = 2;  // e.g. "Greenhouse A"
+    string sensor_type = 3;  // temperature | humidity | light | soil
+    int32  interval_s  = 4;  // report_interval_s from sensors.yaml
+}
