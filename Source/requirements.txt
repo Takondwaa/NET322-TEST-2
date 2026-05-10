@@ -1,0 +1,7 @@
+﻿# IoT Telemetry Pipeline — Python dependencies
+# Install with: pip install -r requirements.txt
+
+aiohttp>=3.9,<4.0
+aiosqlite>=0.19
+protobuf>=6.31.1,<7.0.0
+PyYAML>=6.0
